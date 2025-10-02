@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dione Rayners - Business & Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --text: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 1.5rem;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-content .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Profile Section */
+        .profile-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-category li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-date {
+            min-width: 120px;
+            font-weight: 600;
+            color: var(--secondary);
+            padding-right: 2rem;
+            text-align: right;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-left: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .company {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .timeline-content li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-content li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .achievement {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e8f4fc;
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .education-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item .institution {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item .year {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                text-align: left;
+                padding-right: 0;
+                padding-left: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timeline-content {
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="header-content">
+                <h1>DIONE RAYNERS</h1>
+                <p class="tagline">Business Analyst | Data Analyst | Full Stack Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>063 021 8541</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>dionelearns@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sandton, Gauteng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Profile</h2>
+            </div>
+            <div class="profile-content">
+                <p>Analytically minded professional with 6+ years' experience across customer success, vendor management, sales operations, and systems testing, now enhanced with full-stack development capabilities from an intensive coding bootcamp.</p>
+                <p>Skilled at identifying process gaps, analyzing data, and implementing technical solutions that improve efficiency and client satisfaction. Combines strong business acumen with newly acquired programming skills in Python, SQL, JavaScript, and web development frameworks.</p>
+                <p>Currently pursuing opportunities as a Business Analyst, Data Analyst, or Junior Developer to leverage both technical programming skills and business knowledge to deliver measurable results and digital transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Technical Development</h3>
+                    <ul>
+                        <li>Python for Data Analysis</li>
+                        <li>SQL & Database Management</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML5, CSS3 & Responsive Design</li>
+                        <li>React & Frontend Frameworks</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Business & Data Analysis</h3>
+                    <ul>
+                        <li>Process Improvement & Workflow Optimization</li>
+                        <li>Data Analysis & Visualization</li>
+                        <li>Requirements Gathering & Documentation</li>
+                        <li>CRM Management & Data Integrity</li>
+                        <li>Reporting & Insights Generation</li>
+                        <li>Stakeholder Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Professional</h3>
+                    <ul>
+                        <li>Customer Success & Stakeholder Engagement</li>
+                        <li>Vendor & Supplier Relationship Management</li>
+                        <li>Project Coordination & Cross-Functional Collaboration</li>
+                        <li>Technical Troubleshooting & Systems Testing</li>
+                        <li>Agile Methodology & Scrum Framework</li>
+                        <li>Problem-Solving & Critical Thinking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2024 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Customer Success Manager</h3>
+                        <span class="company">Easy Debit</span>
+                        <ul>
+                            <li>Conduct system and AVS testing to troubleshoot client-raised issues, implementing technical solutions</li>
+                            <li>Analyze client data using analytical approaches to identify process bottlenecks and recommend efficiency improvements</li>
+                            <li>Maintain and optimize CRM records, ensuring data integrity for reporting and decision-making</li>
+                            <li>Apply problem-solving methodologies to enhance customer experience and technical support procedures</li>
+                        </ul>
+                        <div class="achievement">
+                            <strong>Technical Integration:</strong> Applied systematic debugging approaches from software development to improve technical issue resolution.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Development Bootcamp</h3>
+                        <span class="company">HyperionDev</span>
+                        <ul>
+                            <li>Completed intensive 6-month coding bootcamp with focus on Python, SQL, JavaScript and web development</li>
+                            <li>Developed multiple full-stack applications including database-driven web solutions</li>
+                            <li>Gained proficiency in software development lifecycle, version control, and agile methodologies</li>
+                            <li>Applied problem-solving skills to build technical solutions for real-world business problems</li>
+                        </ul>
+                        <div class="achievement">
+                            <strong>Skills Transformation:</strong> Successfully transitioned from business operations to technical development while maintaining strong business perspective.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">April 2023 – February 2024</div>
+                    <div class="timeline-content">
+                        <h3>Sales Administrator & Vendor Management</h3>
+                        <span class="company">Reflex Solutions</span>
+                        <ul>
+                            <li>Produced detailed pricing analysis and competitor benchmarking to support sales strategy</li>
+                            <li>Managed vendor relationships, negotiated terms, and ensured contract compliance</li>
+                            <li>Created accurate quotations, proposals, and feasibility assessments based on supplier and market data</li>
+                            <li>Applied data analysis techniques to improve reporting accuracy and business insights</li>
+                        </ul>
+                        <div class="achievement">
+                            <strong>Process Automation:</strong> Identified opportunities for workflow automation that later informed technical project development.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2018 – April 2023</div>
+                    <div class="timeline-content">
+                        <h3>Sales Administrator</h3>
+                        <span class="company">CMC Networks</span>
+                        <ul>
+                            <li>Managed sales reporting, CRM data validation, and quotation accuracy</li>
+                            <li>Built and maintained performance dashboards and forecasting reports</li>
+                            <li>Oversaw deal registration processes and vendor liaison, ensuring compliance</li>
+                            <li>Developed understanding of business systems that informed technical solution design</li>
+                        </ul>
+                        <div class="achievement">
+                            <strong>Systems Thinking:</strong> Gained deep understanding of business processes that enables effective translation of requirements to technical solutions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Bookstore Inventory System</h3>
+                        <p>Full-stack web application for managing bookstore inventory with SQL database integration</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                        <p>Features user authentication, CRUD operations, and responsive design for inventory management</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Sales Data Analysis Dashboard</h3>
+                        <p>Interactive dashboard for analyzing sales performance and customer data</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <p>Visualizes key metrics and trends to support data-driven business decisions</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Customer Portal Redesign</h3>
+                        <p>Modern responsive web portal for customer self-service and support</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                        <p>Improved user experience based on customer success insights and usability principles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Certifications</h2>
+            </div>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Full Stack Web Development</h3>
+                    <p class="institution">HyperionDev Bootcamp</p>
+                    <p class="year">2024</p>
+                    <p>Intensive programming bootcamp focused on Python, SQL, JavaScript and web technologies</p>
+                </div>
+                <div class="education-item">
+                    <h3>Bookkeeping NQF3</h3>
+                    <p class="institution">ICB</p>
+                    <p class="year">2020</p>
+                    <p>Financial management and accounting principles</p>
+                </div>
+                <div class="education-item">
+                    <h3>Senior Certificate</h3>
+                    <p class="institution">St Barnabas College</p>
+                    <p class="year">2015</p>
+                    <p>Mathematics, Business Studies, Computer Applications Technology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Connect with me</p>
+            <div class="social-links">
+                <a href="mailto:raynersdione@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/dione-rayners" aria-label="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/dionerayners" aria-label="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="tel:0658355098" aria-label="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <p style="margin-top: 1.5rem;">&copy; 2024 Dione Rayners. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
